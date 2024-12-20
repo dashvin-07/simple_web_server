@@ -175,5 +175,8 @@ Testing the webserver.
 ## OUTPUT:
 ![Screenshot 2024-11-25 141113](https://github.com/user-attachments/assets/0d231b17-2d68-41c6-ae9d-9fa3e7a4cb43)
 
+![TERMIUNAL](https://github.com/user-attachments/assets/d0dd5005-6022-4da1-a387-2a105e127628)
+
+
 # RESULT:
 The program for implementing simple webserver is executed successfully.
