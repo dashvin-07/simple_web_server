@@ -23,7 +23,11 @@ Testing the webserver.
 # PROGRAM:
 
 ~~~
-!DOCTYPE html>
+from django.shortcuts import render,HttpResponse
+def html(request):
+    return render(request,"timetable.html")
+content = '''
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -171,6 +175,21 @@ Testing the webserver.
   </div>
 </body>
 </html>
+
+'''
+from http.server import HTTPServer,BaseHTTPRequestHandler
+class Myserver(BaseHTTPRequestHandler):
+      def do_GET(self):
+        print("Get request received...")
+        self.send_response(200)
+        self.send_header("content-type","text/html")
+        self.end_headers()
+        self.wfile.write(content.encode())
+
+print("This is my webserver")
+server_address = ('',8000)
+httpd = HTTPServer(server_address,Myserver)
+httpd.serve_forever()
 ~~~
 ## OUTPUT:
 ![Screenshot 2024-11-25 141113](https://github.com/user-attachments/assets/0d231b17-2d68-41c6-ae9d-9fa3e7a4cb43)
